@@ -66,6 +66,7 @@ void setup(){
     area_ball += balloon[i].get_area();
     area_block += block[i].get_area();
   }
-  print(area_ball+"\n");
-  print(area_block+"\n");
+  println("area_ball: "+area_ball);
+  println("area_block: "+area_block);
+  println("area: "+(area_ball+area_block));
 }
