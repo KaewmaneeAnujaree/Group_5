@@ -14,7 +14,7 @@ public class Ball{
   }
   
   float get_area(){
-    area = 3.14*(size/2);
+    area = 3.14*pow((size/2),2);
     return area;
   }
 }
