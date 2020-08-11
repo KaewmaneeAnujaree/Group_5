@@ -9,7 +9,8 @@ public class Ball{
   }
 
   void draw(){
-    circle(this.position_x,this.position_y,this.size);
+    circle(position_x,position_y,size);
+    rect(position_x,position_y,size,size);
   }
 }
 
@@ -27,6 +28,7 @@ void setup(){
   size(600,600);
   int i;
   for(i=0; i<=6; i++){
+    balloon[i] = new Ball((i+1)*70,(i+1)*70);
     balloon[i] = new Ball((i+1)*70,(i+1)*70);
   }
   //balloon[1] = new Ball(100,100,100);
