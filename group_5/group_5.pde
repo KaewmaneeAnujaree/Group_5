@@ -1,6 +1,7 @@
 public class Ball{
   float position_x,  position_y;
   float size;
+  float area;
   
   Ball(float pos_x,float pos_y){
     position_x = pos_x;
@@ -9,28 +10,33 @@ public class Ball{
   }
 
   void draw(){
-    circle(position_x,position_y,size);
     rect(position_x,position_y,size,size);
   }
-}
-
-void draw(){
-  int i;
-  for(i=0; i<=6; i++){
-    balloon[i].draw();
+  
+  float get_area(){
+    area = size*size;
+    return area;
   }
-  //balloon[1].draw();
-  //balloon[2].draw();
 }
 
-Ball[] balloon = new Ball[7];
-void setup(){ 
+
+ 
+int n = 7;
+Ball[] balloon = new Ball[n];
+
+void setup(){
   size(600,600);
   int i;
-  for(i=0; i<=6; i++){
-    balloon[i] = new Ball((i+1)*70,(i+1)*70);
+  for(i=0; i<n; i++){
     balloon[i] = new Ball((i+1)*70,(i+1)*70);
   }
-  //balloon[1] = new Ball(100,100,100);
-  //balloon[2] = new Ball(100,100,100);
+}
+void draw(){
+  int i;
+  float area = 0;
+  for(i=0; i<n; i++){
+    balloon[i].draw();
+    area += balloon[i].get_area();
+  }
+  print(area+"\n");
 }
