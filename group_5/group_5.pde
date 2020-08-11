@@ -10,6 +10,7 @@ public class Ball{
 
   void draw(){
     circle(position_x,position_y,size);
+    rect(position_x,position_y,size,size);
   }
 }
 
