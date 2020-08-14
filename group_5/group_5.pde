@@ -1,7 +1,7 @@
 public class Ball{
-  float position_x,  position_y;
-  float size;
-  float area;
+  float position_x,  position_y; //position X & Y of ball
+  float size;  // size of ball
+  float area; // area of ball
   
   Ball(float pos_x,float pos_y){
     position_x = pos_x;
@@ -10,18 +10,19 @@ public class Ball{
   }
 
   void draw(){
-    circle(position_x,position_y,size);
+    fill(random(0,255), random(0,255), random(0,255)); // random color
+    circle(position_x,position_y,size);  //draw ball
   }
   
   float get_area(){
-    area = 3.14*pow((size/2),2);
+    area = 3.14*pow((size/2),2);  // calculate area of ball
     return area;
   }
 }
 
 public class Block{
-  float position_x,  position_y;
-  float size;
+  float position_x,  position_y; // position X & Y of block
+  float size;  // size of block
   float area;
   
   Block(float pos_x,float pos_y,float size){
@@ -31,12 +32,13 @@ public class Block{
   }
 
   void draw(){
-    rect(this.position_x, this.position_y, this.size, this.size);
+    fill(random(0,255), random(0,255), random(0,255)); //random color
+    rect(this.position_x, this.position_y, this.size, this.size); //draw ractangle
   }
   
   float get_area(){
-    area = pow(this.size, 2);
-    return area;
+    area = pow(this.size, 2); // calculate area of ball
+    return area; 
   }
 }
 int n=3;
@@ -54,8 +56,8 @@ void setup(){
   size(300,300);
   background(255, 255, 255);
   for(int i=0; i<n; i++){
-    block[i] = new Block(random(100,windowSize-100), random(100,windowSize-100), random(10,100));
-    ball[i] = new Ball(random(100,windowSize-100), random(100,windowSize-100));
+    block[i] = new Block(random(100,windowSize-50), random(100,windowSize-50), random(10,100));
+    ball[i] = new Ball(random(100,windowSize-50), random(100,windowSize-50));
   }
   for(int i=0; i<n; i++){
     ball[i].draw();
@@ -72,6 +74,7 @@ void setup(){
   println("-------------------------------------------------");
 }
 void draw(){
+  delay(200);
   background(255,255,255);
   for(Ball ball : ball){
     ball.draw();
@@ -83,7 +86,6 @@ void draw(){
 
 void mouseClicked(){
   check_circle = true;
-    delay(300);
     index_block = block.length-1;
     index_ball = ball.length-1;
     for(index_block = block.length-1;index_block>-1;index_block--){
